@@ -37,15 +37,17 @@ const Contact = () => {
     }
   };
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-muted/20 to-background">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-b from-muted/20 to-background">
+      <div className="container mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-brand-green/10 text-brand-green border-brand-green/20">
-            Get In Touch
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your business with cutting-edge technology? Let's discuss your project!
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-semibold border border-brand-green/20">
+              Get In Touch
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">Contact Us</h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Ready to transform your business with cutting-edge technology? Let's discuss your project and bring your vision to life!
           </p>
         </div>
 

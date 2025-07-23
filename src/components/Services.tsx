@@ -93,41 +93,50 @@ const Services = () => {
     }
   };
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-16 lg:py-24 bg-gradient-to-b from-background via-muted/10 to-background">
+      <div className="container mx-auto px-4 lg:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive technology solutions designed to empower your business and bring your ideas to life
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-semibold border border-brand-green/20">
+              Our Services
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 max-w-3xl mx-auto">
+            Comprehensive Technology Solutions
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            From concept to completion, we deliver innovative technology solutions that drive your business forward
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
-              <CardHeader>
-                <div className={`w-16 h-16 ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <service.icon className="w-8 h-8 text-white" />
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+              <CardHeader className="pb-4">
+                <div className={`w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
+                  <service.icon className="w-7 h-7 text-white" />
                 </div>
-                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                <CardDescription className="text-base">
+                <CardTitle className="text-lg font-heading font-semibold mb-2 group-hover:text-primary transition-colors">
+                  {service.title}
+                </CardTitle>
+                <CardDescription className="text-sm leading-relaxed text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2 mb-6">
+              <CardContent className="pt-0">
+                <div className="flex flex-wrap gap-1.5 mb-6">
                   {service.features.map((feature, idx) => (
-                    <Badge key={idx} variant="secondary" className="text-xs">
+                    <Badge key={idx} variant="secondary" className="text-xs px-2 py-1 font-medium">
                       {feature}
                     </Badge>
                   ))}
                 </div>
                 <Button 
                   variant="outline" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 font-medium"
                   onClick={() => scrollToSection('contact')}
                 >
-                  Learn More
+                  Get Quote
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </CardContent>
@@ -135,15 +144,17 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-bold mb-4">Need IT Consultancy?</h3>
-          <p className="text-muted-foreground mb-6">
-            Our expert team provides comprehensive IT consultancy services to help optimize your technology infrastructure
-          </p>
-          <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
-            <Users className="mr-2" />
-            Schedule Consultation
-          </Button>
+        <div className="text-center mt-16 lg:mt-20">
+          <div className="bg-gradient-to-r from-brand-green/5 to-brand-orange/5 rounded-3xl p-8 lg:p-12 border border-brand-green/10">
+            <h3 className="text-2xl lg:text-3xl font-heading font-bold mb-4">Need IT Consultancy?</h3>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              Our expert team provides comprehensive IT consultancy services to help optimize your technology infrastructure and drive digital transformation
+            </p>
+            <Button variant="hero" size="lg" className="shadow-xl hover:shadow-2xl" onClick={() => scrollToSection('contact')}>
+              <Users className="mr-2" />
+              Schedule Free Consultation
+            </Button>
+          </div>
         </div>
       </div>
     </section>
