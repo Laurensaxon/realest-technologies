@@ -16,6 +16,26 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you could add form submission logic
+    alert('Thank you for your message! We will get back to you soon.');
+  };
+
+  const openSocialMedia = (platform: string) => {
+    const urls = {
+      facebook: 'https://facebook.com/RealestTechnologies',
+      twitter: 'https://twitter.com/Realesttech',
+      instagram: 'https://instagram.com/RealestTech',
+      youtube: 'https://youtube.com/RealestTechnologies',
+      website: 'https://www.realesttechnologies.com'
+    };
+    
+    const url = urls[platform as keyof typeof urls];
+    if (url) {
+      window.open(url, '_blank');
+    }
+  };
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto px-4">
@@ -43,7 +63,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-muted-foreground">0769 925 907</p>
+                    <a href="tel:0769925907" className="text-muted-foreground hover:text-brand-green transition-colors">
+                      0769 925 907
+                    </a>
                   </div>
                 </div>
 
@@ -53,7 +75,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">realest.technologies@gmail.com</p>
+                    <a href="mailto:realest.technologies@gmail.com" className="text-muted-foreground hover:text-brand-red transition-colors">
+                      realest.technologies@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -89,16 +113,16 @@ const Contact = () => {
                 <div className="pt-6 border-t">
                   <h3 className="font-semibold mb-4">Follow Us</h3>
                   <div className="flex space-x-4">
-                    <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-200">
+                    <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-200" onClick={() => openSocialMedia('facebook')}>
                       <Facebook className="w-4 h-4" />
                     </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-200">
+                    <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-200" onClick={() => openSocialMedia('twitter')}>
                       <Twitter className="w-4 h-4" />
                     </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-pink-50 hover:border-pink-200">
+                    <Button variant="outline" size="icon" className="hover:bg-pink-50 hover:border-pink-200" onClick={() => openSocialMedia('instagram')}>
                       <Instagram className="w-4 h-4" />
                     </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-red-50 hover:border-red-200">
+                    <Button variant="outline" size="icon" className="hover:bg-red-50 hover:border-red-200" onClick={() => openSocialMedia('youtube')}>
                       <Youtube className="w-4 h-4" />
                     </Button>
                   </div>
@@ -120,40 +144,40 @@ const Contact = () => {
                 <CardTitle className="text-2xl">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleFormSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium mb-2 block">First Name</label>
-                      <Input placeholder="Your first name" />
+                      <Input placeholder="Your first name" required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-2 block">Last Name</label>
-                      <Input placeholder="Your last name" />
+                      <Input placeholder="Your last name" required />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium mb-2 block">Email</label>
-                      <Input type="email" placeholder="your.email@example.com" />
+                      <Input type="email" placeholder="your.email@example.com" required />
                     </div>
                     <div>
                       <label className="text-sm font-medium mb-2 block">Phone</label>
-                      <Input type="tel" placeholder="Your phone number" />
+                      <Input type="tel" placeholder="Your phone number" required />
                     </div>
                   </div>
 
                   <div>
                     <label className="text-sm font-medium mb-2 block">Service Interest</label>
-                    <select className="w-full p-3 border border-input rounded-md bg-background">
-                      <option>Select a service</option>
-                      <option>Web Development</option>
-                      <option>IP Camera Installation</option>
-                      <option>Computer Sales & Assembly</option>
-                      <option>Drone Services</option>
-                      <option>WiFi Installation</option>
-                      <option>PCB Design</option>
-                      <option>IT Consultancy</option>
+                    <select className="w-full p-3 border border-input rounded-md bg-background" required>
+                      <option value="">Select a service</option>
+                      <option value="web-development">Web Development</option>
+                      <option value="ip-camera">IP Camera Installation</option>
+                      <option value="computer-sales">Computer Sales & Assembly</option>
+                      <option value="drone-services">Drone Services</option>
+                      <option value="wifi-installation">WiFi Installation</option>
+                      <option value="pcb-design">PCB Design</option>
+                      <option value="it-consultancy">IT Consultancy</option>
                     </select>
                   </div>
 
@@ -162,10 +186,11 @@ const Contact = () => {
                     <Textarea 
                       placeholder="Tell us about your project requirements..."
                       className="min-h-[120px]"
+                      required
                     />
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full">
+                  <Button variant="hero" size="lg" className="w-full" type="submit">
                     <Send className="mr-2 w-4 h-4" />
                     Send Message
                   </Button>
@@ -181,7 +206,7 @@ const Contact = () => {
             <CardContent className="p-0">
               <h3 className="font-semibold mb-2">Visit Our Website</h3>
               <p className="text-muted-foreground mb-4">www.realesttechnologies.com</p>
-              <Button variant="outline">Visit Website</Button>
+              <Button variant="outline" onClick={() => openSocialMedia('website')}>Visit Website</Button>
             </CardContent>
           </Card>
         </div>

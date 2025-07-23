@@ -16,6 +16,32 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const openSocialMedia = (platform: string) => {
+    const urls = {
+      facebook: 'https://facebook.com/RealestTechnologies',
+      twitter: 'https://twitter.com/Realesttech',
+      instagram: 'https://instagram.com/RealestTech',
+      youtube: 'https://youtube.com/RealestTechnologies'
+    };
+    
+    const url = urls[platform as keyof typeof urls];
+    if (url) {
+      window.open(url, '_blank');
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-b from-primary to-primary/90 text-white">
       <div className="container mx-auto px-4 py-16">
@@ -38,14 +64,14 @@ const Footer = () => {
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
+              <a href="tel:0769925907" className="flex items-center space-x-3 hover:text-brand-orange transition-colors">
                 <Phone className="w-5 h-5 text-brand-orange" />
                 <span>0769 925 907</span>
-              </div>
-              <div className="flex items-center space-x-3">
+              </a>
+              <a href="mailto:realest.technologies@gmail.com" className="flex items-center space-x-3 hover:text-brand-orange transition-colors">
                 <Mail className="w-5 h-5 text-brand-orange" />
                 <span>realest.technologies@gmail.com</span>
-              </div>
+              </a>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-brand-orange" />
                 <span>Nakuru Town Signature Building, First Floor Room No.30</span>
@@ -57,10 +83,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-white/80 hover:text-brand-orange transition-colors">Home</a></li>
-              <li><a href="#services" className="text-white/80 hover:text-brand-orange transition-colors">Services</a></li>
-              <li><a href="#about" className="text-white/80 hover:text-brand-orange transition-colors">About Us</a></li>
-              <li><a href="#contact" className="text-white/80 hover:text-brand-orange transition-colors">Contact</a></li>
+              <li><button onClick={() => scrollToSection('home')} className="text-white/80 hover:text-brand-orange transition-colors">Home</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="text-white/80 hover:text-brand-orange transition-colors">Services</button></li>
+              <li><button onClick={() => scrollToSection('about')} className="text-white/80 hover:text-brand-orange transition-colors">About Us</button></li>
+              <li><button onClick={() => scrollToSection('contact')} className="text-white/80 hover:text-brand-orange transition-colors">Contact</button></li>
             </ul>
           </div>
 
@@ -92,16 +118,16 @@ const Footer = () => {
           <div className="flex items-center space-x-4">
             <span className="text-white/80">Follow us:</span>
             <div className="flex space-x-2">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange" onClick={() => openSocialMedia('facebook')}>
                 <Facebook className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange" onClick={() => openSocialMedia('twitter')}>
                 <Twitter className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange" onClick={() => openSocialMedia('instagram')}>
                 <Instagram className="w-4 h-4" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-brand-orange" onClick={() => openSocialMedia('youtube')}>
                 <Youtube className="w-4 h-4" />
               </Button>
             </div>

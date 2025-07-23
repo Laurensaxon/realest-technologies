@@ -3,6 +3,17 @@ import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-tech-bg.jpg";
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -28,12 +39,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-6">
+            <Button variant="hero" size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('services')}>
               Explore Our Services
               <ArrowRight className="ml-2" />
             </Button>
             
-            <Button variant="glass" size="lg" className="text-lg px-8 py-6">
+            <Button variant="glass" size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('about')}>
               <Play className="mr-2" />
               Watch Demo
             </Button>

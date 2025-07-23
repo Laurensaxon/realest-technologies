@@ -58,6 +58,17 @@ const services = [
 ];
 
 const Services = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <section id="services" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
@@ -88,7 +99,11 @@ const Services = () => {
                     </Badge>
                   ))}
                 </div>
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <Button 
+                  variant="outline" 
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                  onClick={() => scrollToSection('contact')}
+                >
                   Learn More
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -102,7 +117,7 @@ const Services = () => {
           <p className="text-muted-foreground mb-6">
             Our expert team provides comprehensive IT consultancy services to help optimize your technology infrastructure
           </p>
-          <Button variant="hero" size="lg">
+          <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
             <Users className="mr-2" />
             Schedule Consultation
           </Button>

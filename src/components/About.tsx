@@ -11,6 +11,17 @@ import {
 } from "lucide-react";
 
 const About = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -46,7 +57,7 @@ const About = () => {
               ))}
             </div>
 
-            <Button variant="hero" size="lg">
+            <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
               Learn More About Us
               <ArrowRight className="ml-2" />
             </Button>
