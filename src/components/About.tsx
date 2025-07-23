@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,17 +12,7 @@ import {
 } from "lucide-react";
 
 const About = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
   return (
     <section id="about" className="py-16 lg:py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 lg:px-6">
@@ -60,7 +51,7 @@ const About = () => {
               ))}
             </div>
 
-            <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
+            <Button variant="hero" size="lg" onClick={() => navigate('/contact')}>
               Learn More About Us
               <ArrowRight className="ml-2" />
             </Button>

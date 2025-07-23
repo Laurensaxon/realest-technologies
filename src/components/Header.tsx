@@ -1,21 +1,22 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-      setIsMenuOpen(false);
-    }
+  const navigateToPage = (path: string) => {
+    navigate(path);
+    setIsMenuOpen(false);
+  };
+
+  const isActivePage = (path: string) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname === path) return true;
+    return false;
   };
 
   return (
@@ -37,19 +38,31 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors font-medium relative group">
+            <button 
+              onClick={() => navigateToPage('/')} 
+              className={`transition-colors font-medium relative group ${isActivePage('/') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+            >
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
-            <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary transition-colors font-medium relative group">
+            <button 
+              onClick={() => navigateToPage('/services')} 
+              className={`transition-colors font-medium relative group ${isActivePage('/services') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+            >
               Services
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary transition-colors font-medium relative group">
+            <button 
+              onClick={() => navigateToPage('/about')} 
+              className={`transition-colors font-medium relative group ${isActivePage('/about') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+            >
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
-            <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary transition-colors font-medium relative group">
+            <button 
+              onClick={() => navigateToPage('/contact')} 
+              className={`transition-colors font-medium relative group ${isActivePage('/contact') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+            >
               Contact
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
@@ -61,7 +74,7 @@ const Header = () => {
               <Phone className="w-4 h-4 text-primary" />
               <span>0769 925 907</span>
             </a>
-            <Button variant="hero" size="sm" onClick={() => scrollToSection('contact')}>Get Quote</Button>
+            <Button variant="hero" size="sm" onClick={() => navigateToPage('/contact')}>Get Quote</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,15 +90,15 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors text-left">Home</button>
-              <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary transition-colors text-left">Services</button>
-              <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary transition-colors text-left">About</button>
-              <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary transition-colors text-left">Contact</button>
+              <button onClick={() => navigateToPage('/')} className="text-foreground hover:text-primary transition-colors text-left">Home</button>
+              <button onClick={() => navigateToPage('/services')} className="text-foreground hover:text-primary transition-colors text-left">Services</button>
+              <button onClick={() => navigateToPage('/about')} className="text-foreground hover:text-primary transition-colors text-left">About</button>
+              <button onClick={() => navigateToPage('/contact')} className="text-foreground hover:text-primary transition-colors text-left">Contact</button>
               <a href="tel:0769925907" className="flex items-center space-x-2 text-sm pt-2 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary" />
                 <span>0769 925 907</span>
               </a>
-              <Button variant="hero" size="sm" className="w-fit" onClick={() => scrollToSection('contact')}>Get Quote</Button>
+              <Button variant="hero" size="sm" className="w-fit" onClick={() => navigateToPage('/contact')}>Get Quote</Button>
             </nav>
           </div>
         )}

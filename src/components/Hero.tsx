@@ -1,19 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-tech-bg.jpg";
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Background Image */}
@@ -49,12 +40,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-4 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300" onClick={() => scrollToSection('services')}>
+            <Button variant="hero" size="lg" className="text-lg px-8 py-4 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300" onClick={() => navigate('/services')}>
               Explore Our Services
               <ArrowRight className="ml-2" />
             </Button>
             
-            <Button variant="glass" size="lg" className="text-lg px-8 py-4 shadow-xl" onClick={() => scrollToSection('about')}>
+            <Button variant="glass" size="lg" className="text-lg px-8 py-4 shadow-xl" onClick={() => navigate('/about')}>
               <Play className="mr-2" />
               Learn More
             </Button>

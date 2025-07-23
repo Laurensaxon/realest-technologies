@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -61,17 +62,7 @@ const achievements = [
 ];
 
 const WhyChooseUs = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 bg-gradient-to-b from-background to-muted/20">
@@ -203,7 +194,7 @@ const WhyChooseUs = () => {
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             Join the growing list of satisfied clients who have transformed their businesses with our technology solutions.
           </p>
-          <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
+          <Button variant="hero" size="lg" onClick={() => navigate('/contact')}>
             Get Started Today
             <ArrowRight className="ml-2" />
           </Button>

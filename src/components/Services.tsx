@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -81,17 +82,7 @@ const services = [
 ];
 
 const Services = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
   return (
     <section id="services" className="py-16 lg:py-24 bg-gradient-to-b from-background via-muted/10 to-background">
       <div className="container mx-auto px-4 lg:px-6">
@@ -134,7 +125,7 @@ const Services = () => {
                 <Button 
                   variant="outline" 
                   className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 font-medium"
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => navigate('/contact')}
                 >
                   Get Quote
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -150,7 +141,7 @@ const Services = () => {
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Our expert team provides comprehensive IT consultancy services to help optimize your technology infrastructure and drive digital transformation
             </p>
-            <Button variant="hero" size="lg" className="shadow-xl hover:shadow-2xl" onClick={() => scrollToSection('contact')}>
+            <Button variant="hero" size="lg" className="shadow-xl hover:shadow-2xl" onClick={() => navigate('/contact')}>
               <Users className="mr-2" />
               Schedule Free Consultation
             </Button>

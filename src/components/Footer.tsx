@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { 
@@ -12,20 +13,14 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+  const navigateToPage = (path: string) => {
+    navigate(path);
   };
 
   const openSocialMedia = (platform: string) => {
@@ -85,10 +80,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><button onClick={() => scrollToSection('home')} className="text-white/80 hover:text-brand-orange transition-colors">Home</button></li>
-              <li><button onClick={() => scrollToSection('services')} className="text-white/80 hover:text-brand-orange transition-colors">Services</button></li>
-              <li><button onClick={() => scrollToSection('about')} className="text-white/80 hover:text-brand-orange transition-colors">About Us</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="text-white/80 hover:text-brand-orange transition-colors">Contact</button></li>
+              <li><button onClick={() => navigateToPage('/')} className="text-white/80 hover:text-brand-orange transition-colors">Home</button></li>
+              <li><button onClick={() => navigateToPage('/services')} className="text-white/80 hover:text-brand-orange transition-colors">Services</button></li>
+              <li><button onClick={() => navigateToPage('/about')} className="text-white/80 hover:text-brand-orange transition-colors">About Us</button></li>
+              <li><button onClick={() => navigateToPage('/contact')} className="text-white/80 hover:text-brand-orange transition-colors">Contact</button></li>
             </ul>
           </div>
 

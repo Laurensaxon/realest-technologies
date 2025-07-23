@@ -1,20 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRight, Building, Eye } from "lucide-react";
 
 const Gallery = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-b from-background to-muted/10">
@@ -118,11 +109,11 @@ const Gallery = () => {
               Our expert team is ready to assist you with all your tech needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
+              <Button variant="hero" size="lg" onClick={() => navigate('/contact')}>
                 <MapPin className="mr-2" />
                 Get Directions
               </Button>
-              <Button variant="outline" size="lg" onClick={() => scrollToSection('contact')}>
+              <Button variant="outline" size="lg" onClick={() => navigate('/contact')}>
                 Schedule Visit
                 <ArrowRight className="ml-2" />
               </Button>

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -35,17 +36,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 bg-gradient-to-b from-muted/10 to-background">
@@ -96,7 +87,7 @@ const Testimonials = () => {
           <p className="text-muted-foreground mb-6">
             Experience the same level of excellence and professional service that our clients rave about
           </p>
-          <Button variant="hero" size="lg" onClick={() => scrollToSection('contact')}>
+          <Button variant="hero" size="lg" onClick={() => navigate('/contact')}>
             Start Your Project Today
             <ArrowRight className="ml-2" />
           </Button>
