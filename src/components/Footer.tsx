@@ -48,10 +48,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-brand-green to-brand-orange rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">RT</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/lovable-uploads/b6e04550-d39f-454a-b17c-0bbfa4c78c66.png" 
+                alt="Realest Technologies Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h1 className="text-2xl font-bold text-white">Realest</h1>
                 <p className="text-brand-orange -mt-1">Technologies</p>

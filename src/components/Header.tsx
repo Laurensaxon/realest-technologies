@@ -23,10 +23,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-brand-green to-brand-orange rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">RT</span>
-            </div>
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/b6e04550-d39f-454a-b17c-0bbfa4c78c66.png" 
+              alt="Realest Technologies Logo" 
+              className="w-12 h-12 object-contain"
+            />
             <div>
               <h1 className="text-xl font-bold text-primary">Realest</h1>
               <p className="text-sm text-brand-red -mt-1">Technologies</p>

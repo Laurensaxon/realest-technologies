@@ -9,51 +9,74 @@ import {
   Wifi, 
   Cpu, 
   Users, 
-  ArrowRight 
+  ArrowRight,
+  CheckCircle,
+  Wrench
 } from "lucide-react";
 
 const services = [
   {
     icon: Globe,
     title: "Business Websites & Multi Platform Applications",
-    description: "Custom web development and cross-platform applications tailored to your business needs.",
+    description: "Professional web development, e-commerce platforms, and cross-platform mobile applications tailored to your business needs.",
     features: ["Responsive Design", "E-commerce", "Mobile Apps", "SEO Optimized"],
     color: "bg-brand-green"
   },
   {
     icon: Camera,
-    title: "IP Cameras Installation Services",
-    description: "Professional security camera installation and monitoring systems for your property.",
+    title: "CCTV & IP Camera Sales Installation Services",
+    description: "Complete security surveillance systems with HD cameras, remote monitoring, and professional installation services.",
     features: ["HD Surveillance", "Remote Monitoring", "Night Vision", "Cloud Storage"],
     color: "bg-brand-red"
   },
   {
     icon: Laptop,
     title: "Laptops & Desktop Sales & Assembly",
-    description: "Quality computer hardware sales and custom PC builds for all your computing needs.",
+    description: "Quality computer hardware sales, custom PC builds, and comprehensive servicing and acquisition advisory.",
     features: ["Custom Builds", "Gaming PCs", "Business Laptops", "Tech Support"],
     color: "bg-brand-orange"
   },
   {
-    icon: Plane,
-    title: "Unmanned Aerial Vehicles Design & Maintenance",
-    description: "Professional drone services including design, maintenance, and aerial photography.",
-    features: ["Aerial Photography", "Mapping", "Inspections", "Custom Drones"],
+    icon: Wifi,
+    title: "WiFi Installation & Maintenance",
+    description: "Professional network setup, WiFi optimization, and comprehensive maintenance services for homes and businesses.",
+    features: ["Network Setup", "WiFi Optimization", "Security Config", "24/7 Support"],
     color: "bg-brand-green"
   },
   {
-    icon: Wifi,
-    title: "WiFi Installation & Maintenance",
-    description: "Reliable network setup and maintenance services for homes and businesses.",
-    features: ["Network Setup", "WiFi Optimization", "Security Config", "24/7 Support"],
+    icon: Plane,
+    title: "Unmanned Aerial Vehicles Design & Maintenance",
+    description: "Custom drone design, maintenance services, aerial photography, and comprehensive UAV solutions.",
+    features: ["Aerial Photography", "Mapping", "Inspections", "Custom Drones"],
     color: "bg-brand-red"
   },
   {
     icon: Cpu,
     title: "Printed Circuit Boards Design & Development",
-    description: "Custom PCB design and development for electronic projects and prototypes.",
+    description: "Professional PCB design, prototyping, and development services for electronic projects and custom solutions.",
     features: ["Custom Design", "Prototyping", "Testing", "Mass Production"],
     color: "bg-brand-orange"
+  },
+  {
+    icon: Users,
+    title: "Point of Sale Design & Development",
+    description: "Custom POS systems design and development for retail businesses and commercial establishments.",
+    features: ["Custom POS", "Inventory Management", "Payment Integration", "Reporting"],
+    color: "bg-primary"
+  },
+  {
+    icon: CheckCircle,
+    title: "Electrical Installations",
+    description: "Professional electrical services including consumer wiring, electrical fencing, and complete installations.",
+    features: ["Consumer Wiring", "Electrical Fencing", "Safety Systems", "Maintenance"],
+    color: "bg-brand-green"
+  },
+  {
+    icon: Wrench,
+    title: "Electroservicing",
+    description: "Comprehensive repair and maintenance services for refrigerators, microwaves, blenders, cookers and other appliances.",
+    features: ["Appliance Repair", "Maintenance", "Parts Replacement", "Diagnostics"],
+    color: "bg-brand-red"
   }
 ];
 
