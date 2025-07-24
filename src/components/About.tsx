@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { 
   Target, 
   Eye, 
@@ -14,9 +13,6 @@ import {
 
 const About = () => {
   const navigate = useNavigate();
-  const { ref: headerRef, isIntersecting: headerVisible } = useIntersectionObserver();
-  const { ref: cardsRef, isIntersecting: cardsVisible } = useIntersectionObserver();
-  const { ref: statsRef, isIntersecting: statsVisible } = useIntersectionObserver();
   return (
     <section id="about" className="py-16 lg:py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4 lg:px-6">
