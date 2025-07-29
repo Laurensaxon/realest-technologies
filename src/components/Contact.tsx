@@ -14,8 +14,10 @@ import {
   Youtube,
   Send
 } from "lucide-react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const Contact = () => {
+  const { ref: sectionRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you could add form submission logic
@@ -37,15 +39,15 @@ const Contact = () => {
     }
   };
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-gradient-to-b from-muted/20 to-background">
+    <section ref={sectionRef} id="contact" className="py-16 lg:py-24 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isInView ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-4">
-            <span className="px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-semibold border border-brand-green/20">
+            <span className="px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-semibold border border-brand-green/20 hover:bg-brand-green/20 transition-all duration-300">
               Get In Touch
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">Contact Us</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 bg-gradient-to-r from-primary via-brand-green to-brand-orange bg-clip-text text-transparent">Contact Us</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Ready to transform your business with cutting-edge technology? Let's discuss your project and bring your vision to life!
           </p>
@@ -53,8 +55,8 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
-          <div className="lg:col-span-1">
-            <Card className="h-full">
+          <div className={`lg:col-span-1 transition-all duration-1000 ${isInView ? 'animate-slide-in-left' : 'opacity-0 -translate-x-10'}`}>
+            <Card className="h-full hover:shadow-premium transition-all duration-500 bg-white/90 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-2xl">Reach Out to Us</CardTitle>
               </CardHeader>
@@ -140,8 +142,8 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card>
+          <div className={`lg:col-span-2 transition-all duration-1000 ${isInView ? 'animate-slide-in-right' : 'opacity-0 translate-x-10'}`} style={{animationDelay: '0.2s'}}>
+            <Card className="hover:shadow-premium transition-all duration-500 bg-white/90 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-2xl">Send us a Message</CardTitle>
               </CardHeader>
@@ -192,8 +194,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button variant="hero" size="lg" className="w-full" type="submit">
-                    <Send className="mr-2 w-4 h-4" />
+                  <Button variant="hero" size="lg" className="w-full group hover:shadow-glow transition-all duration-500 hover:scale-105" type="submit">
+                    <Send className="mr-2 w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                     Send Message
                   </Button>
                 </form>

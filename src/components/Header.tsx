@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b shadow-sm transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b shadow-sm transition-all duration-500 hover:bg-white/98 hover:shadow-md">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -40,31 +40,31 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => navigateToPage('/')} 
-              className={`transition-colors font-medium relative group ${isActivePage('/') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+              className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
             >
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
             <button 
               onClick={() => navigateToPage('/services')} 
-              className={`transition-colors font-medium relative group ${isActivePage('/services') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+              className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/services') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
             >
               Services
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
             <button 
               onClick={() => navigateToPage('/about')} 
-              className={`transition-colors font-medium relative group ${isActivePage('/about') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+              className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/about') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
             >
               About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/about') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
             <button 
               onClick={() => navigateToPage('/contact')} 
-              className={`transition-colors font-medium relative group ${isActivePage('/contact') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+              className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/contact') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
             >
               Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/contact') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
           </nav>
 
@@ -74,7 +74,7 @@ const Header = () => {
               <Phone className="w-4 h-4 text-primary" />
               <span>0769 925 907</span>
             </a>
-            <Button variant="hero" size="sm" onClick={() => navigateToPage('/contact')}>Get Quote</Button>
+            <Button variant="hero" size="sm" className="hover:shadow-glow transition-all duration-300 hover:scale-105" onClick={() => navigateToPage('/contact')}>Get Quote</Button>
           </div>
 
           {/* Mobile Menu Button */}

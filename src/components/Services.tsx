@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -83,16 +84,17 @@ const services = [
 
 const Services = () => {
   const navigate = useNavigate();
+  const { ref: sectionRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   return (
-    <section id="services" className="py-16 lg:py-24 bg-gradient-to-b from-background via-muted/10 to-background">
+    <section ref={sectionRef} id="services" className="py-16 lg:py-24 bg-gradient-to-b from-background via-muted/10 to-background">
       <div className="container mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isInView ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-4">
-            <span className="px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-semibold border border-brand-green/20">
+            <span className="px-4 py-2 bg-brand-green/10 text-brand-green rounded-full text-sm font-semibold border border-brand-green/20 hover:bg-brand-green/20 transition-all duration-300">
               Our Services
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 max-w-3xl mx-auto bg-gradient-to-r from-primary via-brand-green to-brand-orange bg-clip-text text-transparent">
             Comprehensive Technology Solutions
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -102,10 +104,16 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+            <Card 
+              key={index} 
+              className={`group hover:shadow-premium transition-all duration-700 hover:-translate-y-3 border-0 shadow-lg bg-white/90 backdrop-blur-sm hover:bg-white/95 hover:scale-[1.02] ${
+                isInView ? 'animate-slide-up' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <CardHeader className="pb-4">
-                <div className={`w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                  <service.icon className="w-7 h-7 text-white" />
+                <div className={`w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-glow`}>
+                  <service.icon className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <CardTitle className="text-lg font-heading font-semibold mb-2 group-hover:text-primary transition-colors">
                   {service.title}
@@ -124,11 +132,11 @@ const Services = () => {
                 </div>
                 <Button 
                   variant="outline" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 font-medium"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-glow transition-all duration-500 font-medium hover:scale-105"
                   onClick={() => navigate('/contact')}
                 >
                   Get Quote
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Button>
               </CardContent>
             </Card>
