@@ -60,6 +60,13 @@ const Header = () => {
               <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/about') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
             <button 
+              onClick={() => navigateToPage('/blog')} 
+              className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/blog') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+            >
+              Blog
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/blog') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+            </button>
+            <button 
               onClick={() => navigateToPage('/contact')} 
               className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/contact') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
             >
@@ -93,6 +100,7 @@ const Header = () => {
               <button onClick={() => navigateToPage('/')} className="text-foreground hover:text-primary transition-colors text-left">Home</button>
               <button onClick={() => navigateToPage('/services')} className="text-foreground hover:text-primary transition-colors text-left">Services</button>
               <button onClick={() => navigateToPage('/about')} className="text-foreground hover:text-primary transition-colors text-left">About</button>
+              <button onClick={() => navigateToPage('/blog')} className="text-foreground hover:text-primary transition-colors text-left">Blog</button>
               <button onClick={() => navigateToPage('/contact')} className="text-foreground hover:text-primary transition-colors text-left">Contact</button>
               <a href="tel:0769925907" className="flex items-center space-x-2 text-sm pt-2 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary" />
