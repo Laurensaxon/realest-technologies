@@ -77,7 +77,7 @@ const Header = () => {
 
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="tel:0769925907" className="flex items-center space-x-2 text-sm hover:text-primary transition-colors">
+            <a href="tel:+254769925907" className="flex items-center space-x-2 text-sm hover:text-primary transition-colors" aria-label="Call us at 0769 925 907">
               <Phone className="w-4 h-4 text-primary" />
               <span>0769 925 907</span>
             </a>
@@ -87,7 +87,10 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2"
+            className="md:hidden p-2 rounded-md hover:bg-background/80 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -95,14 +98,14 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
-            <nav className="flex flex-col space-y-4">
-              <button onClick={() => navigateToPage('/')} className="text-foreground hover:text-primary transition-colors text-left">Home</button>
-              <button onClick={() => navigateToPage('/services')} className="text-foreground hover:text-primary transition-colors text-left">Services</button>
-              <button onClick={() => navigateToPage('/about')} className="text-foreground hover:text-primary transition-colors text-left">About</button>
-              <button onClick={() => navigateToPage('/blog')} className="text-foreground hover:text-primary transition-colors text-left">Blog</button>
-              <button onClick={() => navigateToPage('/contact')} className="text-foreground hover:text-primary transition-colors text-left">Contact</button>
-              <a href="tel:0769925907" className="flex items-center space-x-2 text-sm pt-2 hover:text-primary transition-colors">
+          <div className="md:hidden py-4 border-t" id="mobile-navigation">
+            <nav className="flex flex-col space-y-4" role="navigation" aria-label="Mobile navigation">
+              <button onClick={() => navigateToPage('/')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Home</button>
+              <button onClick={() => navigateToPage('/services')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Services</button>
+              <button onClick={() => navigateToPage('/about')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">About</button>
+              <button onClick={() => navigateToPage('/blog')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Blog</button>
+              <button onClick={() => navigateToPage('/contact')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Contact</button>
+              <a href="tel:+254769925907" className="flex items-center space-x-2 text-sm pt-2 hover:text-primary transition-colors py-2 px-2 rounded-md hover:bg-background/80" aria-label="Call us at 0769 925 907">
                 <Phone className="w-4 h-4 text-primary" />
                 <span>0769 925 907</span>
               </a>
