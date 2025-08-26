@@ -115,6 +115,7 @@ const Blog = () => {
                   variant="outline" 
                   size="sm" 
                   className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300"
+                  onClick={() => navigate(`/blog/${post.id}`)}
                 >
                   Read More 
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />

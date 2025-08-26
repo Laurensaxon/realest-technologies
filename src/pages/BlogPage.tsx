@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight, Clock, Search } from "lucide-react";
@@ -80,6 +81,7 @@ const categories = ["All", "Web Development", "Design", "Business", "Cloud Compu
 
 const BlogPage = () => {
   const { ref: elementRef, isInView: isVisible } = useIntersectionObserver();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -197,7 +199,11 @@ const BlogPage = () => {
                     </div>
                   </div>
 
-                  <Button variant="hero" className="hover:shadow-glow transition-all duration-300">
+                  <Button 
+                    variant="hero" 
+                    className="hover:shadow-glow transition-all duration-300"
+                    onClick={() => navigate(`/blog/${featuredPost.id}`)}
+                  >
                     Read Full Article
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -263,6 +269,7 @@ const BlogPage = () => {
                     variant="outline" 
                     size="sm" 
                     className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300"
+                    onClick={() => navigate(`/blog/${post.id}`)}
                   >
                     Read More 
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
