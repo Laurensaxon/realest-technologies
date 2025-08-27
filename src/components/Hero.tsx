@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 lg:px-6 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 mb-4">
+            <span className="inline-block px-4 py-2 backdrop-blur-sm rounded-full text-sm font-medium mb-4 bg-background/10 border border-foreground/20 text-white">
               🚀 Professional Technology Solutions
             </span>
           </div>
@@ -53,7 +53,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             
-            <Button variant="glass" size="lg" className="text-lg px-8 py-4 shadow-xl backdrop-blur-md bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300" onClick={() => navigate('/about')}>
+            <Button variant="glass" size="lg" className="text-lg px-8 py-4 shadow-xl backdrop-blur-md text-white" onClick={() => navigate('/about')}>
               <Play className="mr-2" />
               Learn More
             </Button>
@@ -82,7 +82,7 @@ const Hero = () => {
       </div>
 
       {/* Enhanced Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 backdrop-blur-sm rounded-full animate-float" style={{animationDelay: '0s'}}></div>
+      <div className="absolute top-20 left-10 w-20 h-20 backdrop-blur-sm rounded-full animate-float bg-background/5" style={{animationDelay: '0s'}}></div>
       <div className="absolute bottom-20 right-10 w-16 h-16 bg-brand-orange/10 backdrop-blur-sm rounded-full animate-float" style={{animationDelay: '1s'}}></div>
       <div className="absolute top-1/2 right-20 w-12 h-12 bg-brand-green/10 backdrop-blur-sm rounded-full animate-float" style={{animationDelay: '2s'}}></div>
       <div className="absolute top-1/3 left-1/4 w-8 h-8 bg-brand-red/5 backdrop-blur-sm rounded-full animate-float" style={{animationDelay: '1.5s'}}></div>

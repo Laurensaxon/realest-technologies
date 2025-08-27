@@ -4,6 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { 
   Phone, 
   Mail, 
   MapPin, 
@@ -67,9 +74,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:0769925907" className="text-muted-foreground hover:text-brand-green transition-colors">
-                      0769 925 907
-                    </a>
+                     <a href="tel:+254769925907" className="text-muted-foreground hover:text-brand-green transition-colors">
+                       +254 769 925 907
+                     </a>
                   </div>
                 </div>
 
@@ -116,20 +123,20 @@ const Contact = () => {
                 {/* Social Media */}
                 <div className="pt-6 border-t">
                   <h3 className="font-semibold mb-4">Follow Us</h3>
-                  <div className="flex space-x-4">
-                    <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-200" onClick={() => openSocialMedia('facebook')}>
-                      <Facebook className="w-4 h-4" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-200" onClick={() => openSocialMedia('twitter')}>
-                      <Twitter className="w-4 h-4" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-pink-50 hover:border-pink-200" onClick={() => openSocialMedia('instagram')}>
-                      <Instagram className="w-4 h-4" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="hover:bg-red-50 hover:border-red-200" onClick={() => openSocialMedia('youtube')}>
-                      <Youtube className="w-4 h-4" />
-                    </Button>
-                  </div>
+                   <div className="flex space-x-4">
+                     <Button variant="outline" size="icon" className="hover:bg-accent hover:border-accent-foreground" onClick={() => openSocialMedia('facebook')}>
+                       <Facebook className="w-4 h-4" />
+                     </Button>
+                     <Button variant="outline" size="icon" className="hover:bg-accent hover:border-accent-foreground" onClick={() => openSocialMedia('twitter')}>
+                       <Twitter className="w-4 h-4" />
+                     </Button>
+                     <Button variant="outline" size="icon" className="hover:bg-accent hover:border-accent-foreground" onClick={() => openSocialMedia('instagram')}>
+                       <Instagram className="w-4 h-4" />
+                     </Button>
+                     <Button variant="outline" size="icon" className="hover:bg-accent hover:border-accent-foreground" onClick={() => openSocialMedia('youtube')}>
+                       <Youtube className="w-4 h-4" />
+                     </Button>
+                   </div>
                   <div className="mt-4 space-y-2 text-sm text-muted-foreground">
                     <p>@Realest Technologies</p>
                     <p>@Realesttech</p>
@@ -171,19 +178,23 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">Service Interest</label>
-                    <select className="w-full p-3 border border-input rounded-md bg-background" required>
-                      <option value="">Select a service</option>
-                      <option value="web-development">Web Development</option>
-                      <option value="ip-camera">IP Camera Installation</option>
-                      <option value="computer-sales">Computer Sales & Assembly</option>
-                      <option value="drone-services">Drone Services</option>
-                      <option value="wifi-installation">WiFi Installation</option>
-                      <option value="pcb-design">PCB Design</option>
-                      <option value="it-consultancy">IT Consultancy</option>
-                    </select>
-                  </div>
+                   <div>
+                     <label className="text-sm font-medium mb-2 block">Service Interest</label>
+                     <Select required>
+                       <SelectTrigger className="w-full">
+                         <SelectValue placeholder="Select a service" />
+                       </SelectTrigger>
+                       <SelectContent>
+                         <SelectItem value="web-development">Web Development</SelectItem>
+                         <SelectItem value="ip-camera">IP Camera Installation</SelectItem>
+                         <SelectItem value="computer-sales">Computer Sales & Assembly</SelectItem>
+                         <SelectItem value="drone-services">Drone Services</SelectItem>
+                         <SelectItem value="wifi-installation">WiFi Installation</SelectItem>
+                         <SelectItem value="pcb-design">PCB Design</SelectItem>
+                         <SelectItem value="it-consultancy">IT Consultancy</SelectItem>
+                       </SelectContent>
+                     </Select>
+                   </div>
 
                   <div>
                     <label className="text-sm font-medium mb-2 block">Message</label>
