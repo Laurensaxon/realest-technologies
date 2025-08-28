@@ -2,10 +2,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useAnalytics } from "@/hooks/useAnalytics";
+import { usePerformance } from "@/hooks/usePerformance";
+import { useErrorBoundary } from "@/hooks/useErrorBoundary";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight, Clock, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import OptimizedImage from "@/components/OptimizedImage";
+import { BlogPostSkeleton } from "@/components/ui/loading-skeleton";
+import { ErrorFallback } from "@/components/ErrorFallback";
+import BackToTop from "@/components/BackToTop";
+import { useState, useEffect } from "react";
 
 const blogPosts = [
   {
@@ -82,8 +89,21 @@ const categories = ["All", "Web Development", "Design", "Business", "Cloud Compu
 const BlogPage = () => {
   const { ref: elementRef, isInView: isVisible } = useIntersectionObserver();
   const navigate = useNavigate();
+  const { trackPageView, trackBlogInteraction } = useAnalytics();
+  const { error, captureError, clearError } = useErrorBoundary();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isLoading, setIsLoading] = useState(true);
+
+  usePerformance();
+
+  useEffect(() => {
+    trackPageView({ page: '/blog', title: 'Tech Insights & Innovation' });
+    
+    // Simulate loading completion
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, [trackPageView]);
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -94,6 +114,29 @@ const BlogPage = () => {
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = filteredPosts.filter(post => !post.featured);
+
+  const handleBlogClick = (postId: number) => {
+    try {
+      trackBlogInteraction('post_click', postId);
+      navigate(`/blog/${postId}`);
+    } catch (err) {
+      captureError(err as Error, 'BlogPage');
+    }
+  };
+
+  const handleSearchChange = (value: string) => {
+    setSearchTerm(value);
+    trackBlogInteraction('search', value);
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    trackBlogInteraction('filter', category);
+  };
+
+  if (error) {
+    return <ErrorFallback error={error} onRetry={clearError} />;
+  }
 
   return (
     <div className="min-h-screen">
@@ -127,7 +170,7 @@ const BlogPage = () => {
                 <Input
                   placeholder="Search articles..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={(e) => handleSearchChange(e.target.value)}
                   className="pl-10 h-12 bg-white/80 backdrop-blur-sm border-white/20"
                 />
               </div>
@@ -138,7 +181,7 @@ const BlogPage = () => {
                     key={category}
                     variant={selectedCategory === category ? "default" : "outline"}
                     size="sm"
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => handleCategoryChange(category)}
                     className="transition-all duration-300"
                   >
                     {category}
@@ -158,10 +201,12 @@ const BlogPage = () => {
             <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-elegant border border-white/20">
               <div className="md:flex">
                 <div className="md:w-1/2">
-                  <img 
+                  <OptimizedImage 
                     src={featuredPost.image} 
                     alt={featuredPost.title}
-                    className="w-full h-64 md:h-full object-cover"
+                    className="w-full h-64 md:h-full"
+                    priority={true}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
                 <div className="md:w-1/2 p-8">
@@ -202,7 +247,7 @@ const BlogPage = () => {
                   <Button 
                     variant="hero" 
                     className="hover:shadow-glow transition-all duration-300"
-                    onClick={() => navigate(`/blog/${featuredPost.id}`)}
+                    onClick={() => handleBlogClick(featuredPost.id)}
                   >
                     Read Full Article
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -217,8 +262,15 @@ const BlogPage = () => {
       {/* Blog Posts Grid */}
       <section className="py-12 bg-gradient-to-br from-background via-background/95 to-primary/5">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regularPosts.map((post, index) => (
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Array.from({ length: 6 }, (_, i) => (
+                <BlogPostSkeleton key={i} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {regularPosts.map((post, index) => (
               <article
                 key={post.id}
                 className={`group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-elegant hover:shadow-premium border border-white/20 transition-all duration-700 hover:scale-105 hover:bg-white/90 ${
@@ -227,10 +279,11 @@ const BlogPage = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="relative overflow-hidden">
-                  <img 
+                  <OptimizedImage 
                     src={post.image} 
                     alt={post.title}
-                    className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110"
+                    className="w-full h-48 transition-all duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 bg-primary/90 text-white text-sm rounded-full font-medium backdrop-blur-sm">
@@ -269,15 +322,16 @@ const BlogPage = () => {
                     variant="outline" 
                     size="sm" 
                     className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300"
-                    onClick={() => navigate(`/blog/${post.id}`)}
+                    onClick={() => handleBlogClick(post.id)}
                   >
                     Read More 
                     <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </div>
               </article>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
@@ -287,6 +341,7 @@ const BlogPage = () => {
                 onClick={() => {
                   setSearchTerm("");
                   setSelectedCategory("All");
+                  trackBlogInteraction('clear_filters');
                 }}
               >
                 Clear Filters
@@ -297,6 +352,7 @@ const BlogPage = () => {
       </section>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 };
