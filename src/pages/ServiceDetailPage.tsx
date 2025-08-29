@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 const serviceDetails = {
-  "web-development": {
+  "business-websites-and-multi-platform-applications": {
     title: "Business Websites & Multi Platform Applications",
     icon: Globe,
     description: "Professional web development, e-commerce platforms, and cross-platform mobile applications tailored to your business needs.",
@@ -52,7 +52,7 @@ const serviceDetails = {
     timeline: "2-8 weeks",
     support: "3 months included"
   },
-  "cctv-installation": {
+  "cctv-and-ip-camera-sales-installation-services": {
     title: "CCTV & IP Camera Sales Installation Services",
     icon: Camera,
     description: "Complete security surveillance systems with HD cameras, remote monitoring, and professional installation services.",
@@ -93,7 +93,7 @@ const serviceDetails = {
     timeline: "1-3 days",
     support: "1 year warranty"
   },
-  "pc-assembly": {
+  "laptops-and-desktop-sales-and-assembly": {
     title: "Laptops & Desktop Sales & Assembly",
     icon: Laptop,
     description: "Quality computer hardware sales, custom PC builds, and comprehensive servicing and acquisition advisory.",
@@ -134,7 +134,7 @@ const serviceDetails = {
     timeline: "2-5 days",
     support: "1-3 year warranty"
   },
-  "wifi-installation": {
+  "wifi-installation-and-maintenance": {
     title: "WiFi Installation & Maintenance",
     icon: Wifi,
     description: "Professional network setup, WiFi optimization, and comprehensive maintenance services for homes and businesses.",
@@ -175,7 +175,7 @@ const serviceDetails = {
     timeline: "1-2 days",
     support: "6 months included"
   },
-  "drone-services": {
+  "unmanned-aerial-vehicles-design-and-maintenance": {
     title: "Unmanned Aerial Vehicles Design & Maintenance",
     icon: Plane,
     description: "Custom drone design, maintenance services, aerial photography, and comprehensive UAV solutions.",
@@ -216,7 +216,7 @@ const serviceDetails = {
     timeline: "1 day - 4 weeks",
     support: "Training included"
   },
-  "pcb-design": {
+  "printed-circuit-boards-design-and-development": {
     title: "Printed Circuit Boards Design & Development",
     icon: Cpu,
     description: "Professional PCB design, prototyping, and development services for electronic projects and custom solutions.",
@@ -257,7 +257,7 @@ const serviceDetails = {
     timeline: "2-8 weeks",
     support: "Design documentation"
   },
-  "pos-systems": {
+  "point-of-sale-design-and-development": {
     title: "Point of Sale Design & Development",
     icon: Users,
     description: "Custom POS systems design and development for retail businesses and commercial establishments.",
@@ -298,7 +298,7 @@ const serviceDetails = {
     timeline: "3-6 weeks",
     support: "Training & maintenance"
   },
-  "electrical-installation": {
+  "electrical-installations": {
     title: "Electrical Installations",
     icon: CheckCircle,
     description: "Professional electrical services including consumer wiring, electrical fencing, and complete installations.",
@@ -339,7 +339,7 @@ const serviceDetails = {
     timeline: "1-5 days",
     support: "Safety guarantee"
   },
-  "appliance-repair": {
+  "electroservicing": {
     title: "Electroservicing",
     icon: Wrench,
     description: "Comprehensive repair and maintenance services for refrigerators, microwaves, blenders, cookers and other appliances.",

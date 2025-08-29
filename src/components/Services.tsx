@@ -135,7 +135,14 @@ const Services = () => {
                     variant="outline" 
                     size="sm"
                     className="flex-1 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500"
-                    onClick={() => navigate(`/service/${service.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/,/g, '')}`)}
+                    onClick={() => {
+                      const serviceSlug = service.title
+                        .toLowerCase()
+                        .replace(/&/g, 'and')
+                        .replace(/[^a-z0-9\s]/g, '')
+                        .replace(/\s+/g, '-');
+                      navigate(`/service/${serviceSlug}`);
+                    }}
                   >
                     Details
                   </Button>
