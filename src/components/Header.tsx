@@ -53,6 +53,13 @@ const Header = () => {
               <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </button>
             <button 
+              onClick={() => navigateToPage('/pricing')} 
+              className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/pricing') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+            >
+              Pricing
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-brand-orange transition-all duration-500 ${isActivePage('/pricing') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+            </button>
+            <button 
               onClick={() => navigateToPage('/about')} 
               className={`transition-all duration-300 font-medium relative group hover:scale-105 ${isActivePage('/about') ? 'text-primary' : 'text-foreground hover:text-primary'}`}
             >
@@ -102,6 +109,7 @@ const Header = () => {
             <nav className="flex flex-col space-y-4" role="navigation" aria-label="Mobile navigation">
               <button onClick={() => navigateToPage('/')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Home</button>
               <button onClick={() => navigateToPage('/services')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Services</button>
+              <button onClick={() => navigateToPage('/pricing')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Pricing</button>
               <button onClick={() => navigateToPage('/about')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">About</button>
               <button onClick={() => navigateToPage('/blog')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Blog</button>
               <button onClick={() => navigateToPage('/contact')} className="text-foreground hover:text-primary transition-colors text-left py-2 px-2 rounded-md hover:bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary">Contact</button>

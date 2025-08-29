@@ -130,14 +130,24 @@ const Services = () => {
                     </Badge>
                   ))}
                 </div>
-                <Button 
-                  variant="outline" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-glow transition-all duration-500 font-medium hover:scale-105"
-                  onClick={() => navigate('/contact')}
-                >
-                  Get Quote
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
+                <div className="flex gap-2">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="flex-1 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500"
+                    onClick={() => navigate(`/service/${service.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/,/g, '')}`)}
+                  >
+                    Details
+                  </Button>
+                  <Button 
+                    size="sm"
+                    className="flex-1 shadow-lg hover:shadow-xl transition-all duration-300"
+                    onClick={() => navigate('/contact')}
+                  >
+                    Quote
+                    <ArrowRight className="ml-1 w-3 h-3" />
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
