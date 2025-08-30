@@ -12,7 +12,7 @@ const pricingPlans = [
   {
     name: "Starter",
     icon: Zap,
-    price: "From $299",
+    price: "KES 35,000",
     period: "per project",
     description: "Perfect for small businesses and startups looking to establish their digital presence",
     features: [
@@ -21,7 +21,9 @@ const pricingPlans = [
       "Contact Form",
       "Basic SEO Setup",
       "1 Month Support",
-      "Social Media Integration"
+      "Social Media Integration",
+      "Free Domain (.co.ke)",
+      "Free Hosting (1 year)"
     ],
     popular: false,
     color: "bg-brand-green",
@@ -30,18 +32,20 @@ const pricingPlans = [
   {
     name: "Professional",
     icon: Crown,
-    price: "From $799",
+    price: "KES 95,000",
     period: "per project",
     description: "Comprehensive solutions for growing businesses with advanced features",
     features: [
       "Custom Web Application",
-      "E-commerce Integration",
+      "E-commerce Integration (M-Pesa)",
       "Advanced SEO",
       "Analytics Dashboard",
       "3 Months Support",
-      "Payment Gateway",
+      "Payment Gateway (M-Pesa/Card)",
       "User Management",
-      "Database Integration"
+      "Database Integration",
+      "Mobile App Integration",
+      "WhatsApp Business API"
     ],
     popular: true,
     color: "bg-primary",
@@ -50,18 +54,20 @@ const pricingPlans = [
   {
     name: "Enterprise",
     icon: Shield,
-    price: "Custom Quote",
+    price: "KES 250,000+",
     period: "based on scope",
-    description: "Complete technology transformation for large organizations",
+    description: "Complete technology transformation for large organizations and government projects",
     features: [
       "Custom Software Development",
-      "Cloud Infrastructure",
+      "Cloud Infrastructure (AWS/Azure)",
       "24/7 Support",
       "Advanced Security",
       "Training & Documentation",
       "System Integration",
       "Ongoing Maintenance",
-      "Priority Support"
+      "Priority Support",
+      "Government Compliance",
+      "Multi-location Setup"
     ],
     popular: false,
     color: "bg-brand-orange",
@@ -75,15 +81,21 @@ const servicePackages = [
     packages: [
       {
         name: "CCTV Security Package",
-        price: "From $499",
-        description: "Complete surveillance system with 4 HD cameras",
-        features: ["4 HD Cameras", "DVR System", "Remote Viewing", "Installation"]
+        price: "From KES 45,000",
+        description: "Complete surveillance system with 4 HD cameras and mobile monitoring",
+        features: ["4 HD Cameras (1080p)", "8-Channel DVR", "Mobile Remote Viewing", "Professional Installation", "1TB Storage", "Night Vision"]
       },
       {
         name: "PC Build Package",
-        price: "From $699",
-        description: "Custom desktop computer assembly",
-        features: ["Component Selection", "Assembly", "Testing", "1 Year Warranty"]
+        price: "From KES 55,000",
+        description: "Custom desktop computer assembly for business use",
+        features: ["Intel/AMD Processor", "8GB RAM", "500GB SSD", "Professional Assembly", "Windows License", "1 Year Warranty"]
+      },
+      {
+        name: "Laptop Sales Package",
+        price: "From KES 35,000",
+        description: "Quality laptops for students and professionals",
+        features: ["Brand New/Refurbished", "Intel Core i5/i7", "8GB RAM", "256GB SSD", "Windows 11", "6 Months Warranty"]
       }
     ]
   },
@@ -91,10 +103,16 @@ const servicePackages = [
     category: "Network Solutions",
     packages: [
       {
-        name: "WiFi Setup Package",
-        price: "From $199",
-        description: "Professional network installation",
-        features: ["Router Configuration", "Security Setup", "Speed Optimization", "Support"]
+        name: "Home WiFi Setup",
+        price: "KES 15,000",
+        description: "Professional home network installation with Safaricom/Airtel fiber",
+        features: ["Router Configuration", "WiFi Security Setup", "Speed Optimization", "Device Connection", "3 Months Support"]
+      },
+      {
+        name: "Business Network Setup",
+        price: "From KES 35,000",
+        description: "Enterprise-grade network infrastructure",
+        features: ["Business Router", "Network Security", "Guest Network", "VPN Setup", "Staff Training", "6 Months Support"]
       }
     ]
   },
@@ -102,10 +120,16 @@ const servicePackages = [
     category: "Specialized Services",
     packages: [
       {
-        name: "Drone Services",
-        price: "From $150/hour",
-        description: "Aerial photography and mapping",
-        features: ["Aerial Photography", "Property Mapping", "Inspections", "Video Production"]
+        name: "Drone Photography",
+        price: "KES 12,000/day",
+        description: "Aerial photography and videography for events and real estate",
+        features: ["4K Video Recording", "Professional Editing", "Property Mapping", "Event Coverage", "Same Day Delivery"]
+      },
+      {
+        name: "POS System",
+        price: "From KES 25,000",
+        description: "Complete point of sale system with M-Pesa integration",
+        features: ["M-Pesa Integration", "Inventory Management", "Receipt Printing", "Staff Training", "Cloud Backup", "1 Year Support"]
       }
     ]
   }
@@ -115,9 +139,9 @@ const PricingPage = () => {
   const navigate = useNavigate();
   
   usePageSEO({
-    title: "Pricing - Realest Technologies | Affordable Tech Solutions",
-    description: "Transparent pricing for web development, CCTV installation, PC builds, and more. Get a custom quote for your technology needs.",
-    keywords: "pricing, web development cost, CCTV installation price, PC build pricing, technology services cost"
+    title: "Pricing - Realest Technologies | Affordable Tech Solutions in Kenya",
+    description: "Transparent pricing in KES for web development, CCTV installation, PC builds, and M-Pesa integration. Serving Nairobi and all of Kenya.",
+    keywords: "pricing Kenya, web development cost Nairobi, CCTV installation price Kenya, PC build pricing Nairobi, M-Pesa integration cost, technology services Kenya"
   });
 
   const handleGetStarted = (planName: string) => {
@@ -144,7 +168,7 @@ const PricingPage = () => {
               Simple, Honest Pricing
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Choose the perfect plan for your business needs. All packages include our commitment to quality and ongoing support.
+              Choose the perfect plan for your Kenyan business. All prices in KES with M-Pesa payment options and local support.
             </p>
           </div>
         </section>
@@ -272,9 +296,9 @@ const PricingPage = () => {
               <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-6">
                 Need a Custom Solution?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Every business is unique. Let's discuss your specific requirements and create a tailored solution that fits your budget and goals.
-              </p>
+               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Every Kenyan business is unique. Let's discuss your specific requirements and create a tailored solution with flexible payment plans and local support.
+               </p>
               <Button 
                 size="lg" 
                 onClick={() => navigate('/contact')}
