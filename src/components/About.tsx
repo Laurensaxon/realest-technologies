@@ -26,23 +26,24 @@ const About = () => {
             </div>
             
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 leading-tight">
-              Pioneering Technology Solutions in 
-              <span className="text-brand-green"> Kenya</span>
+              Your Trusted Tech Partner in 
+              <span className="text-brand-green"> Nakuru</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Located in Nakuru Town at the Signature Building opposite Naivas Supermarket, 
-              Realest Technologies has been at the forefront of technological innovation, 
-              delivering cutting-edge solutions that transform businesses and communities.
+              we're your neighborhood tech experts helping students, families, and small businesses 
+              with all their technology needs at prices everyone can afford.
             </p>
 
             <div className="space-y-4 mb-8">
               {[
-                "Expert team with 5+ years of experience",
-                "Comprehensive technology solutions under one roof",
-                "24/7 customer support and maintenance",
-                "Competitive pricing with quality guarantee",
-                "Local presence with global standards"
+                "Friendly team that speaks your language",
+                "Affordable prices with no hidden costs",
+                "Same-day repairs for most problems",
+                "Free advice and consultations",
+                "We come to your home or office",
+                "M-Pesa payments accepted"
               ].map((item, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-brand-green" />
@@ -68,8 +69,8 @@ const About = () => {
                   <div>
                     <h3 className="font-bold text-lg mb-2">Our Mission</h3>
                     <p className="text-muted-foreground">
-                      To render impeccable technology solutions that empower businesses 
-                      and individuals to achieve their digital transformation goals.
+                      To make technology simple and affordable for everyone in Nakuru. 
+                      We believe everyone deserves access to good tech support and solutions.
                     </p>
                   </div>
                 </div>
@@ -85,8 +86,8 @@ const About = () => {
                   <div>
                     <h3 className="font-bold text-lg mb-2">Our Vision</h3>
                     <p className="text-muted-foreground">
-                      To be the leading technology solutions provider in East Africa, 
-                      recognized for innovation, quality, and customer satisfaction.
+                      To be the go-to tech shop in Nakuru where everyone feels welcome - from students 
+                      needing computer help to shop owners wanting M-Pesa integration.
                     </p>
                   </div>
                 </div>
@@ -103,7 +104,7 @@ const About = () => {
                     <h3 className="font-bold text-lg mb-2">Our Location</h3>
                     <p className="text-muted-foreground">
                       Nakuru Town Signature Building, Opposite Naivas Supermarket, 
-                      First Floor Room No.30 - Easily accessible and ready to serve you.
+                      First Floor Room No.30 - Come visit us for friendly help and honest advice.
                     </p>
                   </div>
                 </div>
@@ -115,20 +116,20 @@ const About = () => {
         {/* Stats Section */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="p-6">
-            <div className="text-4xl font-bold text-brand-green mb-2">100+</div>
-            <div className="text-muted-foreground">Projects Delivered</div>
+            <div className="text-4xl font-bold text-brand-green mb-2">500+</div>
+            <div className="text-muted-foreground">Happy Customers</div>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold text-brand-red mb-2">50+</div>
-            <div className="text-muted-foreground">Happy Clients</div>
+            <div className="text-4xl font-bold text-brand-red mb-2">KES 5K+</div>
+            <div className="text-muted-foreground">Starting Prices</div>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold text-brand-orange mb-2">5+</div>
-            <div className="text-muted-foreground">Years Experience</div>
+            <div className="text-4xl font-bold text-brand-orange mb-2">Same Day</div>
+            <div className="text-muted-foreground">Most Repairs</div>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-muted-foreground">Support Available</div>
+            <div className="text-4xl font-bold text-primary mb-2">Daily</div>
+            <div className="text-muted-foreground">We're Open</div>
           </div>
         </div>
       </div>

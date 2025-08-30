@@ -19,65 +19,65 @@ import {
 const services = [
   {
     icon: Globe,
-    title: "Business Websites & Multi Platform Applications",
-    description: "Professional web development, e-commerce platforms, and cross-platform mobile applications tailored to your business needs.",
-    features: ["Responsive Design", "E-commerce", "Mobile Apps", "SEO Optimized"],
+    title: "Simple Websites & Facebook Pages",
+    description: "Get your business online with affordable websites and professional Facebook business pages. Perfect for shops, salons, and small businesses.",
+    features: ["Business Website", "Facebook Page Setup", "WhatsApp Integration", "Basic SEO"],
     color: "bg-brand-green"
   },
   {
-    icon: Camera,
-    title: "CCTV & IP Camera Sales Installation Services",
-    description: "Complete security surveillance systems with HD cameras, remote monitoring, and professional installation services.",
-    features: ["HD Surveillance", "Remote Monitoring", "Night Vision", "Cloud Storage"],
-    color: "bg-brand-red"
-  },
-  {
     icon: Laptop,
-    title: "Laptops & Desktop Sales & Assembly",
-    description: "Quality computer hardware sales, custom PC builds, and comprehensive servicing and acquisition advisory.",
-    features: ["Custom Builds", "Gaming PCs", "Business Laptops", "Tech Support"],
+    title: "Phone & Computer Repair",
+    description: "Quick and affordable repair services for smartphones, tablets, and computers. Same-day service for most issues.",
+    features: ["Screen Replacement", "Virus Removal", "Data Recovery", "Software Issues"],
     color: "bg-brand-orange"
   },
   {
     icon: Wifi,
-    title: "WiFi Installation & Maintenance",
-    description: "Professional network setup, WiFi optimization, and comprehensive maintenance services for homes and businesses.",
-    features: ["Network Setup", "WiFi Optimization", "Security Config", "24/7 Support"],
+    title: "Internet & WiFi Setup",
+    description: "Get reliable internet at home or business. We help you choose the best package and set everything up.",
+    features: ["Safaricom Fiber", "Airtel Setup", "WiFi Configuration", "Speed Testing"],
     color: "bg-brand-green"
   },
   {
-    icon: Plane,
-    title: "Unmanned Aerial Vehicles Design & Maintenance",
-    description: "Custom drone design, maintenance services, aerial photography, and comprehensive UAV solutions.",
-    features: ["Aerial Photography", "Mapping", "Inspections", "Custom Drones"],
+    icon: Camera,
+    title: "Home & Shop Security Cameras",
+    description: "Protect your home, shop, or business with affordable CCTV cameras you can watch from your phone.",
+    features: ["Mobile Viewing", "Night Vision", "Motion Alerts", "Cloud Storage"],
     color: "bg-brand-red"
   },
   {
-    icon: Cpu,
-    title: "Printed Circuit Boards Design & Development",
-    description: "Professional PCB design, prototyping, and development services for electronic projects and custom solutions.",
-    features: ["Custom Design", "Prototyping", "Testing", "Mass Production"],
-    color: "bg-brand-orange"
-  },
-  {
     icon: Users,
-    title: "Point of Sale Design & Development",
-    description: "Custom POS systems design and development for retail businesses and commercial establishments.",
-    features: ["Custom POS", "Inventory Management", "Payment Integration", "Reporting"],
+    title: "M-Pesa Business Solutions",
+    description: "Accept M-Pesa payments at your shop with simple POS systems and payment integration for your business.",
+    features: ["M-Pesa Integration", "Payment Tracking", "Daily Reports", "Customer Receipts"],
     color: "bg-primary"
   },
   {
+    icon: Wrench,
+    title: "Appliance Repair & Maintenance",
+    description: "Fix your home appliances - fridges, microwaves, TVs, and more. Affordable repairs with genuine parts.",
+    features: ["Fridge Repair", "TV Fixing", "Microwave Service", "Home Appliances"],
+    color: "bg-brand-red"
+  },
+  {
     icon: CheckCircle,
-    title: "Electrical Installations",
-    description: "Professional electrical services including consumer wiring, electrical fencing, and complete installations.",
-    features: ["Consumer Wiring", "Electrical Fencing", "Safety Systems", "Maintenance"],
+    title: "Home Electrical & Wiring",
+    description: "Safe electrical installations for your home. Power points, lighting, and electrical problem solving.",
+    features: ["Power Points", "Home Wiring", "Lighting Setup", "Electrical Safety"],
     color: "bg-brand-green"
   },
   {
-    icon: Wrench,
-    title: "Electroservicing",
-    description: "Comprehensive repair and maintenance services for refrigerators, microwaves, blenders, cookers and other appliances.",
-    features: ["Appliance Repair", "Maintenance", "Parts Replacement", "Diagnostics"],
+    icon: Laptop,
+    title: "Computer Training & Classes",
+    description: "Learn basic computer skills, Microsoft Office, and internet use. Perfect for students and professionals.",
+    features: ["Basic Computer", "Microsoft Office", "Internet Skills", "Typing Classes"],
+    color: "bg-brand-orange"
+  },
+  {
+    icon: Plane,
+    title: "Photography & Video Services",
+    description: "Professional photos and videos for events, weddings, and business using our drone and camera equipment.",
+    features: ["Event Photography", "Aerial Shots", "Wedding Videos", "Business Photos"],
     color: "bg-brand-red"
   }
 ];
@@ -95,10 +95,10 @@ const Services = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 max-w-3xl mx-auto bg-gradient-to-r from-primary via-brand-green to-brand-orange bg-clip-text text-transparent">
-            Comprehensive Technology Solutions
+            Tech Solutions for Everyone
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            From concept to completion, we deliver innovative technology solutions that drive your business forward
+            Affordable technology services for homes, shops, students, and small businesses in Nakuru and beyond
           </p>
         </div>
 
@@ -162,13 +162,13 @@ const Services = () => {
 
         <div className="text-center mt-16 lg:mt-20">
           <div className="bg-gradient-to-r from-brand-green/5 to-brand-orange/5 rounded-3xl p-8 lg:p-12 border border-brand-green/10">
-            <h3 className="text-2xl lg:text-3xl font-heading font-bold mb-4">Need IT Consultancy?</h3>
+            <h3 className="text-2xl lg:text-3xl font-heading font-bold mb-4">Need Help With Technology?</h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Our expert team provides comprehensive IT consultancy services to help optimize your technology infrastructure and drive digital transformation
+              Visit our shop in Nakuru or call us for free advice. We're here to help you with any tech problem, big or small.
             </p>
             <Button variant="hero" size="lg" className="shadow-xl hover:shadow-2xl" onClick={() => navigate('/contact')}>
               <Users className="mr-2" />
-              Schedule Free Consultation
+              Get Free Help & Advice
             </Button>
           </div>
         </div>

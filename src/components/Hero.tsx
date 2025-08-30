@@ -31,20 +31,19 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <div className="mb-6">
             <span className="inline-block px-4 py-2 backdrop-blur-sm rounded-full text-sm font-medium mb-4 bg-background/10 border border-foreground/20 text-white">
-              🚀 Professional Technology Solutions
+              🚀 Technology Solutions for Everyone in Nakuru
             </span>
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight animate-fade-in">
-            Rendering Impeccable
+            Your Friendly
             <span className="block text-brand-orange bg-gradient-to-r from-brand-orange to-yellow-400 bg-clip-text text-transparent animate-glow">
-              Technologies
+              Tech Shop
             </span>
           </h1>
           
           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
-            Your trusted partner for cutting-edge technology solutions in Nakuru and beyond. 
-            From web development to drone services, we bring innovation to life.
+            From phone repairs to websites, WiFi setup to M-Pesa integration - we solve all your tech problems at affordable prices in Nakuru.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-slide-up" style={{animationDelay: '0.3s'}}>
@@ -62,12 +61,12 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/20 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
-              <div className="text-2xl md:text-3xl font-bold text-brand-orange mb-1 group-hover:animate-glow">100+</div>
-              <div className="text-white/80 text-sm group-hover:text-white transition-colors duration-300">Projects Completed</div>
+              <div className="text-2xl md:text-3xl font-bold text-brand-orange mb-1 group-hover:animate-glow">500+</div>
+              <div className="text-white/80 text-sm group-hover:text-white transition-colors duration-300">Happy Customers</div>
             </div>
             <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
-              <div className="text-2xl md:text-3xl font-bold text-brand-orange mb-1 group-hover:animate-glow">50+</div>
-              <div className="text-white/80 text-sm group-hover:text-white transition-colors duration-300">Happy Clients</div>
+              <div className="text-2xl md:text-3xl font-bold text-brand-orange mb-1 group-hover:animate-glow">KES 5K+</div>
+              <div className="text-white/80 text-sm group-hover:text-white transition-colors duration-300">Starting Prices</div>
             </div>
             <div className="text-center group hover:transform hover:scale-110 transition-all duration-300">
               <div className="text-2xl md:text-3xl font-bold text-brand-orange mb-1 group-hover:animate-glow">24/7</div>
