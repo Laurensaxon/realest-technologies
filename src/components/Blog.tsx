@@ -67,7 +67,7 @@ const Blog = () => {
           {blogPosts.map((post, index) => (
             <div
               key={post.id}
-              className={`group bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-elegant hover:shadow-premium border border-white/20 transition-all duration-700 hover:scale-105 hover:bg-white/90 ${
+              className={`group bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-elegant hover:shadow-premium border border-white/20 transition-all duration-700 hover:scale-105 hover:bg-white/95 hover:-translate-y-2 interactive ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
@@ -114,7 +114,7 @@ const Blog = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300"
+                  className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 hover:shadow-glow"
                   onClick={() => navigate(`/blog/${post.id}`)}
                 >
                   Read More 
@@ -129,7 +129,7 @@ const Blog = () => {
           <Button 
             variant="hero" 
             size="lg" 
-            className="hover:shadow-glow transition-all duration-300 hover:scale-105"
+            className="hover:shadow-glow transition-all duration-300 hover:scale-105 font-semibold"
             onClick={() => navigate('/blog')}
           >
             View All Articles

@@ -38,8 +38,15 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-primary to-primary/90 text-white">
-      <div className="container mx-auto px-4 py-16">
+    <footer className="bg-gradient-to-br from-primary via-brand-green to-brand-blue text-white relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 right-10 w-32 h-32 bg-brand-orange/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-40 bg-brand-orange/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-20 h-20 bg-white/5 rounded-full blur-2xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
@@ -49,9 +56,9 @@ const Footer = () => {
                 alt="Realest Technologies Logo" 
                 className="w-12 h-12 object-contain"
               />
-              <div>
-                <h1 className="text-2xl font-bold text-white">Realest</h1>
-                <p className="text-brand-orange -mt-1">Technologies</p>
+              <div className="group">
+                <h1 className="text-2xl font-heading font-bold text-white group-hover:text-brand-orange transition-colors duration-300">Realest</h1>
+                <p className="text-brand-orange -mt-1 font-medium group-hover:text-brand-orange-light transition-colors duration-300">Technologies</p>
               </div>
             </div>
             
@@ -78,7 +85,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-6">Quick Links</h3>
+            <h3 className="text-xl font-heading font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li><button onClick={() => navigateToPage('/')} className="text-white/80 hover:text-brand-orange transition-colors">Home</button></li>
               <li><button onClick={() => navigateToPage('/services')} className="text-white/80 hover:text-brand-orange transition-colors">Services</button></li>
@@ -89,15 +96,15 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-xl font-bold mb-6">Our Services</h3>
+            <h3 className="text-xl font-heading font-bold mb-6">Our Services</h3>
             <ul className="space-y-3 text-sm">
-              <li className="text-white/80">Web Development</li>
-              <li className="text-white/80">IP Camera Installation</li>
-              <li className="text-white/80">Computer Sales</li>
-              <li className="text-white/80">Drone Services</li>
-              <li className="text-white/80">WiFi Setup</li>
-              <li className="text-white/80">PCB Design</li>
-              <li className="text-white/80">IT Consultancy</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">Website Development</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">Phone & Computer Repair</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">WiFi Setup</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">Security Cameras</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">M-Pesa Solutions</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">Tech Training</li>
+              <li className="text-white/80 hover:text-brand-orange transition-colors cursor-pointer">Photography Services</li>
             </ul>
           </div>
         </div>

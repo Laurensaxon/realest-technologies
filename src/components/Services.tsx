@@ -86,7 +86,7 @@ const Services = () => {
   const navigate = useNavigate();
   const { ref: sectionRef, isInView } = useIntersectionObserver({ threshold: 0.1 });
   return (
-    <section ref={sectionRef} id="services" className="py-16 lg:py-24 bg-gradient-to-b from-background via-muted/10 to-background">
+    <section ref={sectionRef} id="services" className="py-16 lg:py-24 bg-gradient-to-br from-background via-muted/5 to-primary/5 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isInView ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block mb-4">

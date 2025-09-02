@@ -5,10 +5,12 @@ import Portfolio from "@/components/Portfolio";
 import Blog from "@/components/Blog";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import ScrollEnhancer from "@/components/ScrollEnhancer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen scroll-smooth">
+      <ScrollEnhancer />
       <Header />
       <Hero />
       <div className="pt-8">

@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b shadow-sm transition-all duration-500 hover:bg-white/98 hover:shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b shadow-soft transition-all duration-300 hover:bg-white/98 hover:shadow-elegant">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -28,11 +28,11 @@ const Header = () => {
             <img 
               src="/lovable-uploads/b6e04550-d39f-454a-b17c-0bbfa4c78c66.png" 
               alt="Realest Technologies Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 object-contain transition-transform duration-300 hover:scale-110"
             />
-            <div>
-              <h1 className="text-xl font-heading font-bold text-primary">Realest</h1>
-              <p className="text-sm text-brand-red -mt-1 font-medium">Technologies</p>
+            <div className="transition-all duration-300">
+              <h1 className="text-xl font-heading font-bold text-primary hover:text-brand-green-light transition-colors duration-300">Realest</h1>
+              <p className="text-sm text-brand-red -mt-1 font-medium hover:text-brand-red-light transition-colors duration-300">Technologies</p>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ const Header = () => {
               <Phone className="w-4 h-4 text-primary" />
               <span>0769 925 907</span>
             </a>
-            <Button variant="hero" size="sm" className="hover:shadow-glow transition-all duration-300 hover:scale-105" onClick={() => navigateToPage('/contact')}>Get Quote</Button>
+            <Button variant="hero" size="sm" className="hover:shadow-glow transition-all duration-300 hover:scale-105 font-semibold" onClick={() => navigateToPage('/contact')}>Get Quote</Button>
           </div>
 
           {/* Mobile Menu Button */}
