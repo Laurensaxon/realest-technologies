@@ -6,7 +6,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { usePerformance } from "@/hooks/usePerformance";
 import { useErrorBoundary } from "@/hooks/useErrorBoundary";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, ArrowRight, Clock, Search, Plus } from "lucide-react";
+import { Calendar, User, ArrowRight, Clock, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import OptimizedImage from "@/components/OptimizedImage";
 import { BlogPostSkeleton } from "@/components/ui/loading-skeleton";
@@ -175,7 +175,7 @@ const BlogPage = () => {
                 />
               </div>
               
-              <div className="flex flex-wrap gap-2 justify-center mb-6">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {categories.map((category) => (
                   <Button
                     key={category}
@@ -187,17 +187,6 @@ const BlogPage = () => {
                     {category}
                   </Button>
                 ))}
-              </div>
-              
-              <div className="text-center">
-                <Button 
-                  variant="hero"
-                  onClick={() => navigate('/blog/add')}
-                  className="hover:shadow-glow transition-all duration-300"
-                >
-                  <Plus className="w-4 h-4 mr-2" />
-                  Add New Blog Post
-                </Button>
               </div>
             </div>
           </div>
